@@ -1,0 +1,203 @@
+@import url(reset.css);
+@import url(scrollbar.css);
+@import url(card.css);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+/**************BASE**************/
+html, body{
+	height: 100%;
+}
+body{
+	background: rgba(234, 232, 231, 1.0);
+  font-family: 'Open Sans', Arial, sans-serif;
+	color: rgba(33, 33, 33, 1.0);
+	min-height: 100%;
+	margin: 0 auto;
+}
+a{
+	text-shadow: none;
+	text-decoration: none;
+	color: rgba(33, 33, 33, 1.0);
+}
+a:visited{
+	text-shadow: none;
+	text-decoration: none;
+	color: rgba(33, 33, 33, 1.0);
+}
+h1{
+	font-size: 24px;
+	font-weight: 300;
+}
+h1 span{
+	font-weight: 600;
+}
+/**************END BASE**************/
+
+/**************HEADER**************/
+header{
+  background: rgba(255, 255, 255, 1.0);
+  color: rgba(33, 33, 33, 1.0);
+}
+.header__top{
+	height: 75px;
+	margin: 0 20px;
+  display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.search{
+	margin: 10px;
+}
+.header__title{
+	margin: 10px;
+}
+.wo__account{
+	display: none;
+	flex-flow: row nowrap;
+}
+.wo__account a{
+	margin: 10px;
+}
+nav > ul::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.w__account .menu{
+	position: relative;
+	display: flex;
+}
+.w__account li{
+	margin: 10px;
+	position: relative;
+}
+.menu li:hover .submenu{
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	padding: 0;
+	z-index: 100000;
+}
+.submenu{
+	display: none;
+	background: rgba(255, 255, 255, 1.0);
+	border: 1px solid rgba(33, 33, 33, 1.0);
+	border-radius: 5px;
+}
+.submenu li{
+	width: 120px;
+	padding: 10px;
+	font-size: 16px;
+	color: rgba(33, 33, 33, 1.0);
+}
+
+.header__bottom{
+	margin: 0 20px;
+}
+.header__bottom ul{
+	width: 75%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.header__bottom a{
+	padding: 20px;
+	color: rgba(33, 33, 33, 1.0);
+}
+.header__bottom a:hover{
+	color: rgba(255, 255, 255, 1.0);
+	background: rgba(40, 116, 242, 1.0);
+}
+
+/**************END HEADER**************/
+
+
+/**************MAIN**************/
+main{
+	margin:20px;
+	padding:20px;
+}
+
+
+
+
+/**************SHOP**************/
+.shop__index{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.categories{
+	background: rgba(255, 255, 255, 1.0);
+	padding: 10px;
+	margin: 10px;
+	width: 500px;
+	display: flex;
+	flex-flow: column;
+	font-size: 14px;
+	font-weight: 400;
+}
+.categories li{
+	padding: 10px;
+	margin: 10px;
+}
+.products{
+	padding: 10px;
+	display: flex;
+	flex-flow: row wrap;
+}
+/**************END SHOP**************/
+
+
+
+
+
+
+
+/**************END MAIN**************/
+
+
+/**************FOOTER**************/
+footer{
+  background: rgba(33, 40, 51, 1.0);
+  color: rgba(255, 255, 255, 1.0);
+}
+.general-information{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: baseline;
+  padding: 100px 0 50px 0;
+}
+.general-information h3{
+  width: 100px;
+  font-size: 21px;
+  font-weight: 600;
+  padding: 0 100px;
+}
+.footer__col{
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+}
+.footer__col a{
+  color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  font-weight: 300;
+}
+.footer__col a:hover{
+  color: rgba(255, 255, 255, 1.0);
+}
+.copyright{
+  text-align: center;
+  padding: 50px 0;
+  font-size: 12px;
+  font-weight: 300;
+}
+/**************END FOOTER**************/
