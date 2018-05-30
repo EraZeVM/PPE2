@@ -33,4 +33,13 @@ class ProductTable extends Table{
     ", [$category_id]);
   }
 
+  public function findAllCart($ids){
+      return $this->query('
+        SELECT product.id, product.title, product.img, product.price, product.description, category.title as category
+        FROM product
+        LEFT JOIN category ON category_id = category.id
+        WHERE product.id IN ('.implode(',', $ids).')
+      ');
+  }
+
 }

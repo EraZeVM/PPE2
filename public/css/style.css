@@ -54,16 +54,11 @@ header{
 	margin: 10px;
 }
 .wo__account{
-	display: none;
+	display: flex;
 	flex-flow: row nowrap;
 }
 .wo__account a{
 	margin: 10px;
-}
-nav > ul::after{
-	content: "";
-	display: block;
-	clear: both;
 }
 .w__account .menu{
 	position: relative;

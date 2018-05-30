@@ -23,41 +23,52 @@
         <div class="header__title">
           <a href="index.php?view=app.index"><h1>Daltons<span>Shop</span></h1></a>
         </div>
+
+
         <div class="account">
-          <div class="wo__account">
-            <a href="index.php?view=users.signin">Connexion</a>
-            <a href="index.php?view=users.signup">Inscription</a>
-          </div>
+          <?php if(isset($_SESSION['auth'])): ?>
+
           <div class="w__account">
             <nav>
               <ul class="menu">
                 <li><i class="far fa-user"></i>
                   <ul class="submenu">
-                    <a href="index.php?view=users.index"><li>Compte</li></a>
-                    <a href="index.php?view=users.orders"><li>Commandes</li></a>
-                    <a href="index.php?view=users.signout"><li>Déconnexion</li></a>
+                    <a href="index.php?view=user.account"><li>Compte</li></a>
+                    <a href="index.php?view=user.myorders"><li>Commandes</li></a>
+                    <a href="index.php?view=user.signout"><li>Déconnexion</li></a>
                   </ul>
                 </li>
                 <li><i class="fas fa-shopping-cart"></i>
                   <ul class="submenu">
-                    <a href="index.php?view=users.index"><li>test</li></a>
-                    <a href="index.php?view=users.orders"><li>test</li></a>
-                    <a href="index.php?view=users.signout"><li>test</li></a>
+                    <a href="index.php?view=shop.cart"><li>Panier</li></a>
                   </ul>
                 </li>
               </ul>
             </nav>
           </div>
+
+        <?php else: ?>
+          <div class="wo__account">
+            <a href="index.php?view=user.signin">Connexion</a>
+            <a href="index.php?view=user.signup">Inscription</a>
+          </div>
+
+        <?php endif ?>
+
         </div>
+
+
       </div>
+
+
       <div class="header__bottom">
         <nav>
           <ul>
-            <a href="#"><li>Page d'accueil</li></a>
+            <a href="index.php?view=app.index"><li>Page d'accueil</li></a>
             <a href="index.php?view=shop.index"><li>Nos produits</li></a>
-            <a href="#"><li>Règlement</li></a>
-            <a href="#"><li>Formulaire de devis</li></a>
-            <a href="#"><li>Contact</li></a>
+            <!--<a href="index.php?view=app.rules"><li>Règlement</li></a>
+            <a href="index.php?view=app.devis"><li>Formulaire de devis</li></a>-->
+            <a href="index.php?view=app.contact"><li>Contact</li></a>
           </ul>
         </nav>
       </div>

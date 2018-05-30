@@ -3,13 +3,14 @@ namespace App\Controllers;
 
 use \App;
 use App\Models\Shop\Cart;
+use App\Models\Shop\Order;
+use Core\Models\HTML\Form;
+use Core\Models\Auth\DatabaseAuth;
 
 class ShopController extends AppController{
 
   public function __construct(){
     parent::__construct();
-    $this->loadModel('Product');
-    $this->loadModel('Category');
 
     if (!isset($_SESSION)) {
       session_start();
@@ -50,13 +51,32 @@ class ShopController extends AppController{
     if (empty($ids)) {
       $products = array();
     }else {
-      $products = App::getInstance()->getDatabase()->query('SELECT * FROM product WHERE id IN ('.implode(',', $ids).')');
+      $products = $this->Product->findAllCart($ids);
     }
     $categories = $this->Category->all();
-    $this->render('shop.cart', compact('products', 'categories'));
+    $cart = new Cart(App::getInstance()->getDatabase());
+    $this->render('shop.cart', compact('products', 'categories', 'cart'));
   }
 
+  public function orderConfirm(){
+    $ids = array_keys($_SESSION['cart']);
+    if (empty($ids)) {
+      $products = array();
+    }else {
+      $products = $this->Product->findAllCart($ids);
+    }
+    $form = new Form($_POST);
+    $order = new Order(App::getInstance()->getDatabase());
+    $auth = new DatabaseAuth(App::getInstance()->getDatabase());
+    $cart = new Cart(App::getInstance()->getDatabase());
+    $user_id = $auth->getUserID()->id;
+    $order->addOrder($ids, $user_id, $cart);
+    $this->render('shop.orderconfirm', compact('products', 'order', 'cart', 'form'));
+  }
 
+  public function orderValidate(){
+
+  }
 
   public function add(){
     if(!empty($_GET['id'])){

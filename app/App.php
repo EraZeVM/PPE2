@@ -1,5 +1,6 @@
 <?php
 use Core\Config;
+use Core\Models\Auth\DatabaseAuth;
 use Core\Models\Database\MySQLDatabase;
 
 class App{

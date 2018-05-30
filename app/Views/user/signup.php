@@ -11,6 +11,9 @@
 <?php endif; ?>
 
 <form method="post">
+  <?= $form->input('last_name', 'Nom'); ?>
+  <?= $form->input('first_name', 'Prenom'); ?>
+  <?= $form->input('phone_number', 'Numero de telephone'); ?>
   <?= $form->input('username', 'Pseudo'); ?>
   <?= $form->input('email', 'Email', ['type' => 'email']); ?>
   <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>

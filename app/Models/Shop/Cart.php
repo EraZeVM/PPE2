@@ -12,10 +12,10 @@ class Cart{
   }
 
   public function add($product_id){
-    if (isset($_SESSION['cart'][$product_id])) {
-      $_SESSION['cart'][$product_id]++;
+    if (isset($_SESSION['cart'][$product_id]['quantity'])) {
+      $_SESSION['cart'][$product_id]['quantity']++;
     }else {
-      $_SESSION['cart'][$product_id] = 1;
+      $_SESSION['cart'][$product_id]['quantity'] = 1;
     }
   }
 
@@ -38,13 +38,14 @@ class Cart{
   public function total(){
     $total = 0;
     $ids = array_keys($_SESSION['cart']);
-    if (empty($ids)) {
+    if(empty($ids)){
       $products = array();
-    }else {
-      $products = $this->database->query('SELECT id, price FROM product WHERE id IN ('.implode(',',$ids).')');
+    }
+    else{
+      $products = $this->database->query('SELECT id, price FROM product WHERE id IN ('.implode(',', $ids).')');
     }
     foreach ($products as $product) {
-      $total += $product->price * $_SESSION['cart'][$product->id];
+      $total += $product->price * $_SESSION['cart'][$product->id]['quantity'];
     }
     return $total;
   }
